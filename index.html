@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Stock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Smart Stock</h1>
+    <form id="productForm">
+        <label for="productType">Product Type:</label>
+        <select id="productType" required>
+            <option value="">Select Type</option>
+            <option value="Medicine">Medicine</option>
+            <option value="Food Item">Food Item</option>
+            <option value="Grocery Item">Grocery Item</option>
+        </select>
+
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" required>
+
+        <label for="productQuantity">Quantity:</label>
+        <input type="number" id="productQuantity" min="1" required>
+
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="date" id="expiryDate" required>
+
+        <label for="productDetails">Additional Details:</label>
+        <input type="text" id="productDetails" placeholder="Optional details about the product">
+        
+        <button type="submit">Add Product</button>
+    </form>
+
+    <button id="clearAll" class="danger-button">Clear All Products</button>
+
+    <h2>Product List</h2>
+
+    <div id="filterSection">
+        <label for="expiringSoon">Expiring Soon (60-30 days):</label>
+        <select id="expiringSoon"></select>
+
+        <label for="expiredProducts">Expired Products (Needs Restock):</label>
+        <select id="expiredProducts"></select>
+
+        <label for="sortOptions">Sort by:</label>
+        <select id="sortOptions">
+            <option value="timeLeft">Time Left</option>
+            <option value="itemType">Item Type</option>
+        </select>
+
+        <label for="searchProduct">Search Product:</label>
+        <input type="text" id="searchProduct" placeholder="Search by name or expiry">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product Type</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Expiry Date</th>
+                <th>Days Left</th>
+                <th>Status</th>
+                <th>Need to be Donated</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="productList"></tbody>
+    </table>
+
+    <button id="testDataButton">Generate Test Data</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
